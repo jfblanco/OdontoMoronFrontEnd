@@ -1,0 +1,30 @@
+<p>Operatorias</p>
+<label for="obraSocial">Seleccione una Obra social para poder continuar: </label>
+<select ng-options="obraSocial as obraSocial.nombre for obraSocial in obrasSociales" 
+		ng-model="obraSocial"
+		ng-change="buscarObraSocial()">
+</select>
+<br>
+<a class="glyphicon glyphicon-plus" ng-click="agregarOperatoria()">Agregar</a>
+<br>
+<br>
+<br>
+<div class="row">
+	<table class="col-md-12 table">
+		<tr>
+		   <th class="col-md-2">Codigo</th>
+		   <th class="col-md-6">Descripcion</th>
+		   <th class="col-md-2">Precio</th>
+		   <th class="col-md-2"></th>
+		</tr>
+		<tr ng-repeat="operatoria in operatorias">
+		   <td>{{operatoria.codigo}}</td>
+		   <td>{{operatoria.descripcion}}</td>
+		   <td>{{operatoria.precio}}</td>
+		   <td>
+		   		<a class="glyphicon glyphicon-edit"></a>
+		   		<a class="glyphicon glyphicon-trash"></a>
+		   </td>
+		</tr>
+	</table>	
+</div>

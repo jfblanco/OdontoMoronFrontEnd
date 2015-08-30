@@ -1,0 +1,31 @@
+<p>Crear un nuevo Turno</p>
+<div class = "row">
+	<div style="display:inline-block; min-height:290px;" class = "col-md-4">
+      <datepicker ng-model="turnoDTO.fecha" class="well well-sm" custom-class="getDayClass(date, mode)"></datepicker>
+    </div>
+    <div class = "col-md-5">
+    	<div class = "row">
+    		<label for="numeroAsociado">Numero de asociado:</label>
+    		<div class="input-group">
+      			<input class="form-control" id="numeroAsociado" ng-model="pacienteDTO.numeroAsociado"/>
+      			<span class="input-group-btn">
+			    	<button class="btn btn-primary glyphicon glyphicon-search"
+			    			ng-click="buscarPaciente()"></button>
+		      	</span>      			
+      		</div>
+      	</div>	
+      	<div class = "row">
+      		Apellido: {{pacienteDTO.apellido}} Nombre: {{pacienteDTO.nombre}}
+      	</div>
+      	<div class = "row">
+      		DNI: {{pacienteDTO.dni}} Plan: {{pacienteDTO.plan}}
+      	</div>
+    </div>
+</div>
+<div class = "row">
+	<label for="sobreturno">Sobreturno:</label>
+	<input type="checkbox" id="sobreturno" ng-model="turnoDTO.sobreturno"/>
+</div>
+<div class = "row">
+	<button class="btn btn-info" ng-click="guardarTurno()">Guardar Turno</button>
+</div>

@@ -1,0 +1,26 @@
+<p>Carga de Nuevo Paciente</p>
+<div class="form-group col-md-4">
+	<label for="numeroAsociado">Numero de asociado:</label><input class="form-control" id="numeroAsociado" ng-model="pacienteDTO.numeroAsociado"/>
+	<label for="apellido">Apellido:</label><input class="form-control" id="apellido" ng-model="pacienteDTO.apellido"/>
+	<label for="nombre">Nombre:</label><input class="form-control" id="nombre" ng-model="pacienteDTO.nombre"/>
+	<label for="fechaNacimiento">Fecha de Nacimiento:</label>
+	<p class="input-group">
+      <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="pacienteDTO.fechaNacimiento" is-open="status.opened" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+      <span class="input-group-btn">
+        <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+      </span>
+    </p>
+	
+	<label for="sexo">Sexo</label>
+	<div id="sexo" class="radio">
+		<label for="hombre"><input type="radio" name="optionsRadios" value="m" id="hombre" ng-model="pacienteDTO.sexo"/>Masculino</label>
+		<label for="mujer"><input type="radio" name="optionsRadios" value="f" id="mujer" ng-model="pacienteDTO.sexo"/>Femenino</label>
+	</div>	
+	<br>
+	<label for="domicilio">domicilio:</label><input class="form-control" id="domicilio" ng-model="pacienteDTO.domicilio"/>
+	<label for="numeroTelefono">telefono:</label><input class="form-control" id="numeroTelefono" ng-model="pacienteDTO.telefono"/>
+	<label for="numeroCelular">celular:</label><input class="form-control" id="numeroCelular" ng-model="pacienteDTO.celular"/>
+	<label for="numeroDocumento">Documento:</label><input class="form-control" id="numeroDocumento" ng-model="pacienteDTO.dni"/>
+	<br>
+	<button class="btn btn-info" ng-click="guardarPaciente()">Guardar</button>
+</div>	
