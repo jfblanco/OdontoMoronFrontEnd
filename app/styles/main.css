@@ -2,7 +2,7 @@
 	-webkit-border-radius: 0 !important;
 	-moz-border-radius: 0 !important;
 	border-radius: 0 !important;
-	
+	/*border: 0px !important;*/
 }
 
 .browsehappy {
@@ -87,4 +87,24 @@ body {
   .jumbotron {
     border-bottom: 0;
   }
+}
+
+ .btn{
+  border:0px solid transparent; /* this was 1px earlier */
+ }
+
+#week .btn {
+	color: #333538;
+	background-color: #ffffff;
+}
+
+#week .btn:hover {
+	color: #ffffff;
+	background-color: #333538;
+}
+
+#week .btn:active,
+#week .btn.active {
+	color: #ffffff;
+	background-color: #0bb1e5;
 }
