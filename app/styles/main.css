@@ -5,6 +5,14 @@
 	/*border: 0px !important;*/
 }
 
+.top-buffer-40 {
+	margin-top:40px;
+}
+
+.top-buffer-20 {
+	margin-top:20px;
+}
+
 .browsehappy {
   margin: 0.2em 0;
   background: #ccc;
@@ -89,22 +97,84 @@ body {
   }
 }
 
- .btn{
-  border:0px solid transparent; /* this was 1px earlier */
- }
 
-#week .btn {
-	color: #333538;
-	background-color: #ffffff;
+/* turnolist week style start */
+
+#turnolist h1 {
+	color: #0bb1e5;
 }
 
-#week .btn:hover {
+
+#turnolist th{
+	color: #44494e;
+}
+
+#turnolist td{
+	color: #555a5d;
+}
+
+#turnolist #week {
+	border-bottom-style: solid;
+	border-bottom-width: 2px;
+	border-bottom-color: #333538;
+	border-left:1px solid transparent;
+	border-right:1px solid transparent;
+	border-top:1px solid transparent;
+}
+
+/* turnolist week buttons start */
+
+#turnolist #week .btn{
+	margin-bottom: 2px;
+	border-bottom: 1px solid transparent;
+	border-left:1px solid transparent;
+	border-right:1px solid transparent;
+	border-top:1px solid transparent;
+}
+
+#turnolist #week .btn-success{
+	color: #333538;
+	background-color: #f2f2f2;
+}
+
+#turnolist #week .btn-success:hover {
 	color: #ffffff;
 	background-color: #333538;
 }
 
-#week .btn:active,
-#week .btn.active {
+#turnolist #week .btn-success:active,
+#turnolist #week .btn-success.active {
 	color: #ffffff;
 	background-color: #0bb1e5;
+}
+ 
+#turnolist #week .btn-primary {
+	color: #333538;
+	background-color: #ffffff;
+}
+
+#turnolist #week .btn-primary:hover {
+	color: #ffffff;
+	background-color: #333538;
+}
+
+#turnolist #week .btn-primary:active,
+#turnolist #week .btn-primary.active {
+	color: #ffffff;
+	background-color: #0bb1e5;
+}
+
+/* turnolist week buttons end */
+
+/* turnolist week style end */
+
+/*index style start*/
+
+#mainToolBar{
+	background-color: #f2f2f2;
+}
+
+.fill { 
+    min-height: 100%;
+    height: 100%;
 }
