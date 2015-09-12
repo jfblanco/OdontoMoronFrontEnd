@@ -12,6 +12,11 @@ angular.module('odontoMoronFrontendApp')
     // AngularJS will instantiate a singleton by calling "new" on this function
     var service = {};
 
+    service.getUserData = function()
+    {
+        return $cookies['userData'];
+    }
+
     service.getToken = function(){
     	return $cookies['userToken'];
     }
@@ -27,6 +32,11 @@ angular.module('odontoMoronFrontendApp')
                     }
                 }).success(function (response) {
                 	$cookies.put('userToken',response.token);
+                    $http.get(VaribleService.url()+'/account').success(
+                        function(response)
+                        {
+                            $cookies.put('userDataRol',response.roles[0]);
+                        });
                     callback(response);
                 });
             }       
