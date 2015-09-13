@@ -8,7 +8,7 @@
  * Service in the odontoMoronFrontendApp.
  */
 angular.module('odontoMoronFrontendApp')
-  .service('LoginService', ['$http', '$cookies','VaribleService', function ($http,$cookies,VaribleService) {
+  .service('LoginService', ['$http', '$cookies','$rootScope','VaribleService', function ($http,$cookies,$rootScope,VaribleService) {
     // AngularJS will instantiate a singleton by calling "new" on this function
     var service = {};
 
@@ -36,6 +36,7 @@ angular.module('odontoMoronFrontendApp')
                         function(response)
                         {
                             $cookies.put('userDataRol',response.roles[0]);
+                            $rootScope.$broadcast('userLoggedIn',{rol:response.roles[0]});
                         });
                     callback(response);
                 });

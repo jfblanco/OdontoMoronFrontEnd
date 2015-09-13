@@ -9,7 +9,6 @@
 angular.module('odontoMoronFrontendApp')
   .directive('permisos', ['$cookies', function ($cookies) {
     return {
-      attrs: 'roles',
       restrict: 'A',
       link: function postLink(scope, element, attrs) {
         var userData = $cookies.get('userDataRol');

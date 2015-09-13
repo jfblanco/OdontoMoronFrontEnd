@@ -1,0 +1,49 @@
+<div class="fill" ng-controller="MenuCtrl">
+    {{rol}}
+    <div id="mainToolBar" class="col-md-2">
+      <ul>
+        <div class="btn-group" ng-show="pacienteMenu">
+          <a class="btn dropdown-toggle" data-toggle="dropdown">
+            Paciente
+            <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a ng-href="#/paciente/new">Nuevo</a></li>
+            <li><a ng-href="#/paciente/get">Buscar</a></li>
+            <li><a ng-href="#/paciente/list">Listar todos</a></li>
+          </ul>
+        </div>
+        <div class="btn-group" ng-show="turnoMenu">
+          <a class="btn dropdown-toggle" data-toggle="dropdown">
+            Turno
+            <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a ng-href="#/turno/new">Nuevo</a></li>
+            <li><a ng-href="#/turno/get">Buscar</a></li>
+            <li><a ng-href="#/turno/list">Listar semana</a></li>
+          </ul>
+        </div>
+        <div class="btn-group" ng-show="atencionMenu">
+          <a class="btn dropdown-toggle" data-toggle="dropdown">
+            Atencion
+            <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a ng-href="#/turno/new">Nuevo</a></li>
+            <li><a ng-href="#/turno/get">Buscar</a></li>
+            <li><a ng-href="#/turno/list">Listar semana</a></li>
+          </ul>
+        </div>
+        <div class="btn-group" ng-show="operatoriaMenu">
+          <a class="btn dropdown-toggle" data-toggle="dropdown">
+            Operatorias
+            <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a ng-href="#/obrasocial/list">Ver</a></li>
+          </ul>
+        </div>
+      </ul>
+    </div>
+</div>
