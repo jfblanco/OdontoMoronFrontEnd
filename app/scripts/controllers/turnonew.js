@@ -8,7 +8,7 @@
  * Controller of the odontoMoronFrontendApp
  */
 angular.module('odontoMoronFrontendApp')
-  .controller('TurnonewCtrl', ['$scope', 'PacienteService', 'TurnoService',function ($scope,PacienteService,TurnoService) {
+  .controller('TurnonewCtrl', ['$scope', 'PacienteService', 'TurnoService','UsuarioService',function ($scope,PacienteService,TurnoService,UsuarioService) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
@@ -18,6 +18,7 @@ angular.module('odontoMoronFrontendApp')
     $scope.turnoDTO = {
     		paciente: null,
     		sobreturno: false,
+        odontologo: null,
     		fecha: new Date()
     }
 
@@ -77,18 +78,10 @@ angular.module('odontoMoronFrontendApp')
     		});
     }
 
-
-
-
-
-
-
-
-
-    $scope.today = function() {
-    	$scope.pacienteDTO.fechaNacimiento = new Date();
-  	};
-  	$scope.today();
+  $scope.today = function() {
+  	$scope.pacienteDTO.fechaNacimiento = new Date();
+	};
+	$scope.today();
 
 	$scope.clear = function () {
 		$scope.pacienteDTO.fechaNacimiento = null;
