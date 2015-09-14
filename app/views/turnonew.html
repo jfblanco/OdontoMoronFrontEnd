@@ -6,10 +6,17 @@
     <div class = "col-md-5">
       <div class = "row">
         <label for="numeroAsociado">Odontologo:</label>
-        <select ng-options="odontologo as odontologo.nombre for odontologo in odontologos" 
+        <select ng-options="odontologo as odontologo.lastName for odontologo in odontologos" 
             ng-model="turnoDTO.odontologo">
         </select>
       </div>
+      <div class = "row">
+        <label for="numeroAsociado">Tipo de tratamiento:</label>
+        <select ng-options="odontologo as odontologo.lastName for odontologo in odontologos" 
+            ng-model="turnoDTO.odontologo">
+        </select>
+      </div>
+
     	<div class = "row">
     		<label for="numeroAsociado">Numero de asociado:</label>
     		<div class="input-group">

@@ -15,6 +15,8 @@ angular.module('odontoMoronFrontendApp')
       'Karma'
     ];
 
+    $scope.odontologos = [];
+
     $scope.turnoDTO = {
     		paciente: null,
     		sobreturno: false,
@@ -34,6 +36,13 @@ angular.module('odontoMoronFrontendApp')
     	celular: null,
     	dni: null
     }
+
+    UsuarioService.buscarOdontologo().$promise.then(
+      function(odontologos)
+      {
+        for(var i = 0; i < odontologos.length; i++)
+          $scope.odontologos.push(odontologos[i][0]);
+      });
 
     $scope.buscarPaciente = function()
     {
