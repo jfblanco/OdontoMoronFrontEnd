@@ -1,0 +1,13 @@
+<div class="form-group">
+	<p>Cerrar atencion con el Paciente</p>
+	<label for="apellido">Paciente: {{turno.paciente.nombre}} {{turno.paciente.apellido}}</label></br></br>
+    <label for="apellido">Trabajo realizado:</label>
+    <select ng-options='operatoria as (operatoria.obraSocial.nombre +"  |  "+operatoria.codigo +"  |  "+ operatoria.descripcion) for operatoria in operatorias' ng-model="operatoriaDTO.operatoria">
+    </select></br></br>
+	
+
+	<label for="apellido">Precio:</label>
+	<input class="form-control" style="width:20%" id="apellido" ng-model="operatoriaDTO.precio"/>
+	<br></br>
+	<button class="btn btn-info" ng-click="cerrarTurno()">Cerrar Turno</button>
+</div>

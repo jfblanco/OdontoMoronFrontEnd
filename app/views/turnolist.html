@@ -24,14 +24,16 @@
 				<th>Obra Social</th>
 				<th>Odontologo</th>
 				<th>Horario</th>
+				<th></th>
 			</tr>
 		</thead>
 		<tbody>
-			<tr>
-				<td>John</td>
-				<td>Doe</td>
-				<td>IOMA</td>
-				<td>16:30</td>
+			<tr ng-repeat="turno in turnos">
+				<td>{{turno.paciente.apellido}}</td>
+				<td>{{turno.paciente.prepaga}}</td>
+				<td>{{turno.odontologo.lastName}}</td>
+				<td>{{turno.fecha | date: "hh:mm" }}</td>
+				<td><span class="glyphicon glyphicon-ok-circle" ng-click="cerrarTurno(turno)"></span></td>
 			</tr>
 		</tbody>
 	</table>

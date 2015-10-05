@@ -17,6 +17,17 @@ angular.module('odontoMoronFrontendApp')
 
     $scope.odontologos = [];
 
+    $scope.hstep = 1;
+  
+    $scope.mstep = 30;
+
+    $scope.options = {
+      hstep: [1, 2, 3],
+      mstep: [0, 30]
+    };
+
+  $scope.ismeridian = true;
+
     $scope.turnoDTO = {
     		paciente: null,
     		sobreturno: false,
@@ -152,4 +163,24 @@ angular.module('odontoMoronFrontendApp')
 
     return '';
   };
+
+  $scope.toggleMode = function() {
+    $scope.ismeridian = ! $scope.ismeridian;
+  };
+
+  $scope.update = function() {
+    var d = new Date();
+    d.setHours( 14 );
+    d.setMinutes( 0 );
+    $scope.mytime = d;
+  };
+
+  $scope.changed = function () {
+    $log.log('Time changed to: ' + $scope.mytime);
+  };
+
+  $scope.clear = function() {
+    $scope.mytime = null;
+  };
+
   }]);

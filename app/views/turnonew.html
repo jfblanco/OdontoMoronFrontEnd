@@ -30,6 +30,9 @@
     </div>
 </div>
 <div class = "row">
+  <timepicker ng-model="turnoDTO.fecha" ng-change="changed()" hour-step="hstep" minute-step="mstep" show-meridian="ismeridian"></timepicker>
+</div>
+<div class = "row">
 	<label for="sobreturno">Sobreturno:</label>
 	<input type="checkbox" id="sobreturno" ng-model="turnoDTO.sobreturno"/>
 </div>
