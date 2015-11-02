@@ -1,0 +1,46 @@
+<div id="liquidacionlist" class="container">
+	<h1>Liquidacion</h1>
+	<div class="top-buffer-20"></div>
+	<div class = "row">
+	    <label for="numeroAsociado">Odontologo:</label>
+	    <select ng-options="odontologo as odontologo.lastName for odontologo in odontologos" 
+	    		ng-change="buscarAtencionesEnElMes()"
+	    		ng-model="odontologoDTO">
+	    </select>
+	</div>
+	<table class="table table-striped table-hover">
+		<thead>
+			<tr>
+				<th>Descripcion del tratamiento</th>
+				<th>Paciente</th>
+				<th>Fecha</th>
+				<th>Horario</th>
+				<th>Ingreso</th>
+				<th>Comicion</th>
+				<th>TOTAL</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="atencion in atenciones">
+				<td>{{atencion.operatoria.nombre}}</td>
+				<td>{{atencion.paciente.apellido}} {{atencion.paciente.nombre}}</td>
+				<td>{{atencion.fecha | date: "dd/MM/yyyy"}}</td>
+				<td>{{atencion.fecha | date: "hh:mm"}}</td>
+				<td>{{atencion.ingreso}}</td>
+				<td>{{atencion.egreso}}</td>
+				<td></td>
+			</tr>
+		</tbody>
+		<tfoot>	
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td>{{total}}</td>
+			</tr>
+		</tfoot>
+	</table>
+</div>

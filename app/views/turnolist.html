@@ -33,7 +33,7 @@
 				<td>{{turno.paciente.prepaga}}</td>
 				<td>{{turno.odontologo.lastName}}</td>
 				<td>{{turno.fecha | date: "hh:mm" }}</td>
-				<td><span class="glyphicon glyphicon-ok-circle" ng-click="cerrarTurno(turno)"></span></td>
+				<td><span ng-hide="turno.finalizada" class="glyphicon glyphicon-ok-circle" ng-click="cerrarTurno(turno)"></span></td>
 			</tr>
 		</tbody>
 	</table>

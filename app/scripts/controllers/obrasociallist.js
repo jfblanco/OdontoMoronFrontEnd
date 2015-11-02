@@ -8,7 +8,7 @@
  * Controller of the odontoMoronFrontendApp
  */
 angular.module('odontoMoronFrontendApp')
-  .controller('ObrasociallistCtrl', ['$scope','ObraSocialService', 'LoginService', '$modal', 'OperatoriaService', function ($scope,ObraSocialService,LoginService,$modal,OperatoriaService) {
+  .controller('ObrasociallistCtrl', ['$scope','ObraSocialService', 'LoginService', '$modal', 'OperatoriaService','VaribleService', function ($scope,ObraSocialService,LoginService,$modal,OperatoriaService,VaribleService) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
@@ -33,7 +33,7 @@ angular.module('odontoMoronFrontendApp')
 
 	$scope.agregarOperatoria = function(){
 		var modalInstance = $modal.open({
-		      templateUrl: '../../views/operatoriamodal.html',
+		      templateUrl: 'views/operatoriamodal.html',
 		      controller: 'OperatoriamodalCtrl',
 		      scope: $scope,
 		      resolve: {

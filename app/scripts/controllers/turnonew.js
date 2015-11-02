@@ -17,6 +17,12 @@ angular.module('odontoMoronFrontendApp')
 
     $scope.odontologos = [];
 
+    $scope.correctoAlerta = true;
+
+    $scope.warningAlerta = true;
+
+    $scope.errorAlerta = true;
+
     $scope.hstep = 1;
   
     $scope.mstep = 30;
@@ -55,6 +61,13 @@ angular.module('odontoMoronFrontendApp')
           $scope.odontologos.push(odontologos[i][0]);
       });
 
+    $scope.removerCollapse = function()
+    {
+      $scope.correctoAlerta = true;
+      $scope.warningAlerta = true;
+      $scope.errorAlerta = true;
+    }
+
     $scope.buscarPaciente = function()
     {
     	PacienteService.buscarPorNumeroAsociado({numeroAsociado: $scope.pacienteDTO.numeroAsociado}).$promise.then(
@@ -67,10 +80,15 @@ angular.module('odontoMoronFrontendApp')
 			    	nombre: result.nombre,
 			    	fechaNacimiento: result.fechaNacimiento,
 			    	sexo: result.sexo,
-			    	dni: result.dni
+			    	dni: result.dni,
+            obraSocial: result.obraSocial
 			    }
 			    $scope.turnoDTO.paciente = $scope.pacienteDTO;
-    		});
+    		},
+        function(error)
+        {
+          $scope.warningAlerta = false;
+        });
     }
 
     $scope.guardarTurno = function()
@@ -95,7 +113,12 @@ angular.module('odontoMoronFrontendApp')
 			    	celular: null,
 			    	dni: null
 			    }
-    		});
+          $scope.correctoAlerta = false;
+    		},
+        function(error)
+        {
+          $scope.errorAlerta = false;
+        });
     }
 
   $scope.today = function() {

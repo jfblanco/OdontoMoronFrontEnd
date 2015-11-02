@@ -21,7 +21,7 @@ angular.module('odontoMoronFrontendApp')
     	return $cookies['userToken'];
     }
 
-    service.login = function(credentials, callback) {
+    service.login = function(credentials, callback, errorCallback) {
                 var data = 'username=' + credentials.username +
                     '&password=' + credentials.password;
 
@@ -39,6 +39,8 @@ angular.module('odontoMoronFrontendApp')
                             $rootScope.$broadcast('userLoggedIn',{rol:response.roles[0]});
                         });
                     callback(response);
+                }).error(function(data, response){
+                    errorCallback(data,response);
                 });
             }       
 

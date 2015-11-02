@@ -2,12 +2,17 @@
 	<p>Cerrar atencion con el Paciente</p>
 	<label for="apellido">Paciente: {{turno.paciente.nombre}} {{turno.paciente.apellido}}</label></br></br>
     <label for="apellido">Trabajo realizado:</label>
-    <select ng-options='operatoria as (operatoria.obraSocial.nombre +"  |  "+operatoria.codigo +"  |  "+ operatoria.descripcion) for operatoria in operatorias' ng-model="operatoriaDTO.operatoria">
+    <select ng-options='operatoria as (operatoria.obraSocial.nombre +"  |  "+operatoria.codigo +"  |  "+ operatoria.descripcion) for operatoria in operatorias' 
+    		ng-model="operatoriaDTO.operatoria"
+    		ng-change="cambiarPrecio()">
     </select></br></br>
 	
 
 	<label for="apellido">Precio:</label>
-	<input class="form-control" style="width:20%" id="apellido" ng-model="operatoriaDTO.precio"/>
+	<input class="form-control" style="width:20%" id="apellido" ng-model="operatoriaDTO.ingreso"/>
+	<br></br>
+	<label for="egreso">Egreso por odontologo:</label>
+	<input class="form-control" style="width:20%" id="egreso" ng-model="operatoriaDTO.egreso"/>
 	<br></br>
 	<button class="btn btn-info" ng-click="cerrarTurno()">Cerrar Turno</button>
 </div>

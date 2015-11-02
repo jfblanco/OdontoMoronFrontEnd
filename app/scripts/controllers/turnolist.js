@@ -8,7 +8,7 @@
  * Controller of the odontoMoronFrontendApp
  */
 angular.module('odontoMoronFrontendApp')
-  .controller('TurnolistCtrl',['$scope','$modal','UsuarioService','TurnoService', function ($scope,$modal,UsuarioService,TurnoService) {
+  .controller('TurnolistCtrl',['$scope','$modal','UsuarioService','TurnoService','VaribleService', function ($scope,$modal,UsuarioService,TurnoService,VaribleService) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
@@ -16,7 +16,7 @@ angular.module('odontoMoronFrontendApp')
     ];
 
     $scope.odontologoDTO = null;
-
+    
     $scope.odontologos = [];
 
     UsuarioService.buscarOdontologo().$promise.then(
@@ -41,7 +41,7 @@ angular.module('odontoMoronFrontendApp')
     $scope.cerrarTurno = function(turno)
     {
         var modalInstance = $modal.open({
-            templateUrl: '../../views/atencionmodal.html',
+            templateUrl: 'views/atencionmodal.html',
             controller: 'AtencionmodalCtrl',
             scope: $scope,
             resolve: {
@@ -49,6 +49,18 @@ angular.module('odontoMoronFrontendApp')
                 return turno;
               }
             }
+        });
+
+        modalInstance.result.then(function (turnoId) 
+        {
+            for(var t in $scope.turnos)
+            {
+              var turno = $scope.turnos[t];
+              if(turno.id == turnoId)
+              {
+                  turno.finalizada = true;
+              }
+            }  
         });
     }
 

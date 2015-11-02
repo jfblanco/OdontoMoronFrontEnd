@@ -8,12 +8,22 @@
  * Controller of the odontoMoronFrontendApp
  */
 angular.module('odontoMoronFrontendApp')
-  .controller('PacientenewCtrl', ['$scope','PacienteService', function ($scope,PacienteService) {
+  .controller('PacientenewCtrl', ['$scope','PacienteService','ObraSocialService', function ($scope,PacienteService,ObraSocialService) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
       'Karma'
     ];
+
+    ObraSocialService.query().$promise.then(
+      function(obras)
+      {
+      $scope.obrasSociales = obras;
+    });
+
+    $scope.errorAlerta = true;
+
+    $scope.correctoAlerta = true;
 
     $scope.pacienteDTO = {
     	numeroAsociado: null,
@@ -24,7 +34,15 @@ angular.module('odontoMoronFrontendApp')
     	domicilio: null,
     	telefono: null,
     	celular: null,
-    	dni: null
+    	dni: null,
+      numeroDeAfiliado: null,
+      lugarDeTrabajo: null,
+      parentezcoConElAsociado: null,
+      condicionDeFacturacion: null,
+      plan: null,
+      correoElectronico: null,
+      codigoPostal: null,
+      obraSocial: {id:4}
     }
 
     $scope.today = function() {
@@ -108,6 +126,18 @@ angular.module('odontoMoronFrontendApp')
             celular: null,
             dni: null
           }
+          $scope.correctoAlerta = false;
+      },
+      function(error)
+      {
+        $scope.errorAlerta = false;
       });
   }
+
+  $scope.removerCollapse = function()
+  {
+    $scope.errorAlerta = true;
+    $scope.correctoAlerta = true;
+  }
+
   }]);

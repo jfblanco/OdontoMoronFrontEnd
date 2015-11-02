@@ -1,26 +1,50 @@
 <p>Nuevo Paciente</p>
+<div>
+	<div collapse="correctoAlerta">
+		<div class="alert alert-success">El paciente se creo con exito</div>
+	</div>
+</div>
+<div>
+	<div collapse="errorAlerta">
+		<div class="alert alert-danger">Fallo la creacion del paciente</div>
+	</div>
+</div>
 <div class="form-group col-md-4">
-	<label for="numeroAsociado">Numero de asociado:</label><input class="form-control" id="numeroAsociado" ng-model="pacienteDTO.numeroAsociado"/>
-	<label for="apellido">Apellido:</label><input class="form-control" id="apellido" ng-model="pacienteDTO.apellido"/>
-	<label for="nombre">Nombre:</label><input class="form-control" id="nombre" ng-model="pacienteDTO.nombre"/>
+	<label for="obraSocial">Obra Social:</label>
+	<select class="form-control" 
+		ng-options="obraSocial as obraSocial.nombre for obraSocial in obrasSociales" 
+		ng-model="pacienteDTO.obraSocial"
+		id = "obraSocial">
+	</select>
+	<label for="numeroDeAfiliado">Numero de afiliado:</label><input ng-change="removerCollapse()" class="form-control" id="numeroDeAfiliado" ng-model="pacienteDTO.numeroDeAfiliado"/>
+	<label for="lugarDeTrabajo">Lugar de Trabajo:</label><input ng-change="removerCollapse()" class="form-control" id="lugarDeTrabajo" ng-model="pacienteDTO.lugarDeTrabajo"/>
+	<label for="parentezcoConElAsociado">Parentezco con el Asociado:</label><input ng-change="removerCollapse()" class="form-control" id="parentezcoConElAsociado" ng-model="pacienteDTO.parentezcoConElAsociado"/>
+	<label for="condicionDeFacturacion">Condicion De Facturacion:</label><input ng-change="removerCollapse()" class="form-control" id="condicionDeFacturacion" ng-model="pacienteDTO.condicionDeFacturacion"/>
+	<label for="plan">Plan:</label><input ng-change="removerCollapse()" class="form-control" id="plan" ng-model="pacienteDTO.plan"/>
+	<br>
+	<br>
+	<label for="numeroDocumento">Documento:</label><input ng-change="removerCollapse()" class="form-control" id="numeroDocumento" ng-model="pacienteDTO.dni"/>
+	<label for="apellido">Apellido:</label><input ng-change="removerCollapse()" class="form-control" id="apellido" ng-model="pacienteDTO.apellido"/>
+	<label for="nombre">Nombre:</label><input ng-change="removerCollapse()" class="form-control" id="nombre" ng-model="pacienteDTO.nombre"/>
 	<label for="fechaNacimiento">Fecha de Nacimiento:</label>
 	<p class="input-group">
-      <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="pacienteDTO.fechaNacimiento" is-open="status.opened" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+      <input ng-change="removerCollapse()" type="text" class="form-control" datepicker-popup="{{format}}" ng-model="pacienteDTO.fechaNacimiento" is-open="status.opened" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
       <span class="input-group-btn">
         <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
       </span>
     </p>
-	
+	<br>
 	<label for="sexo">Sexo</label>
 	<div id="sexo" class="radio">
-		<label for="hombre"><input type="radio" name="optionsRadios" value="m" id="hombre" ng-model="pacienteDTO.sexo"/>Masculino</label>
-		<label for="mujer"><input type="radio" name="optionsRadios" value="f" id="mujer" ng-model="pacienteDTO.sexo"/>Femenino</label>
+		<label for="hombre"><input ng-change="removerCollapse()" type="radio" name="optionsRadios" value="m" id="hombre" ng-model="pacienteDTO.sexo"/>Masculino</label>
+		<label for="mujer"><input ng-change="removerCollapse()" type="radio" name="optionsRadios" value="f" id="mujer" ng-model="pacienteDTO.sexo"/>Femenino</label>
 	</div>	
 	<br>
-	<label for="domicilio">domicilio:</label><input class="form-control" id="domicilio" ng-model="pacienteDTO.domicilio"/>
-	<label for="numeroTelefono">telefono:</label><input class="form-control" id="numeroTelefono" ng-model="pacienteDTO.telefono"/>
-	<label for="numeroCelular">celular:</label><input class="form-control" id="numeroCelular" ng-model="pacienteDTO.celular"/>
-	<label for="numeroDocumento">Documento:</label><input class="form-control" id="numeroDocumento" ng-model="pacienteDTO.dni"/>
+	<label for="domicilio">Domicilio:</label><input ng-change="removerCollapse()" class="form-control" id="domicilio" ng-model="pacienteDTO.domicilio"/>
+	<label for="numeroTelefono">Telefono:</label><input ng-change="removerCollapse()" class="form-control" id="numeroTelefono" ng-model="pacienteDTO.telefono"/>
+	<label for="numeroCelular">Celular:</label><input ng-change="removerCollapse()" class="form-control" id="numeroCelular" ng-model="pacienteDTO.celular"/>
+	<label for="correoElectronico">Correo Electronico:</label><input ng-change="removerCollapse()" class="form-control" id="correoElectronico" ng-model="pacienteDTO.correoElectronico"/>
+	<label for="codigoPostal">Codigo Postal:</label><input ng-change="removerCollapse()" class="form-control" id="codigoPostal" ng-model="pacienteDTO.codigoPostal"/>
 	<br>
 	<button class="btn btn-info" ng-click="guardarPaciente()">Guardar</button>
 </div>	

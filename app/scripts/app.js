@@ -16,7 +16,8 @@ angular
     'ngRoute',
     'ngSanitize',
     'ngTouch',
-    'ui.bootstrap'
+    'ui.bootstrap',
+    'ui.bootstrap.collapse'
   ])
   .config(function ($routeProvider) {
     $routeProvider
@@ -59,6 +60,10 @@ angular
       .when('/logout', {
         templateUrl: 'views/logout.html',
         controller: 'LogoutCtrl'
+      })
+      .when('/liquidacion/list', {
+        templateUrl: 'views/liquidacionlist.html',
+        controller: 'LiquidacionlistCtrl'
       })
       .otherwise({
         redirectTo: '/'

@@ -1,4 +1,19 @@
 <p>Calendario</p>
+<div>
+  <div collapse="correctoAlerta">
+    <div class="alert alert-success">El turno se creo con exito</div>
+  </div>
+  </div>
+  <div>
+    <div collapse="warningAlerta">
+      <div class="alert alert-warning">No se puede encontrar al paciente</div>
+    </div>
+  </div>
+  <div>
+    <div collapse="errorAlerta">
+      <div class="alert alert-danger">Fallo la carga del turno en el servidor</div>
+    </div>
+  </div>
 <div class = "row">
 	<div style="display:inline-block; min-height:290px;" class = "col-md-4">
       <datepicker ng-model="turnoDTO.fecha" class="well well-sm" custom-class="getDayClass(date, mode)"></datepicker>
@@ -14,7 +29,7 @@
     	<div class = "row">
     		<label for="numeroAsociado">Numero de asociado:</label>
     		<div class="input-group">
-      			<input class="form-control" id="numeroAsociado" ng-model="pacienteDTO.numeroAsociado"/>
+      			<input class="form-control" ng-change="removerCollapse()" id="numeroAsociado" ng-model="pacienteDTO.numeroAsociado"/>
       			<span class="input-group-btn">
 			    	<button class="btn btn-primary glyphicon glyphicon-search"
 			    			ng-click="buscarPaciente()"></button>
@@ -22,10 +37,12 @@
       		</div>
       	</div>	
       	<div class = "row">
-      		Apellido: {{pacienteDTO.apellido}} Nombre: {{pacienteDTO.nombre}}
+      		Apellido: {{pacienteDTO.apellido}} <br/>
+          Nombre: {{pacienteDTO.nombre}}
       	</div>
       	<div class = "row">
-      		DNI: {{pacienteDTO.dni}} Plan: {{pacienteDTO.plan}}
+      		DNI: {{pacienteDTO.dni}} <br/>
+          Plan: {{pacienteDTO.obraSocial.nombre}}
       	</div>
     </div>
 </div>

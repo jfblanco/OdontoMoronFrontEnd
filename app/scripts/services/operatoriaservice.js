@@ -8,9 +8,11 @@
  * Service in the odontoMoronFrontendApp.
  */
 angular.module('odontoMoronFrontendApp')
-  .service('OperatoriaService', [ '$resource', function ($resource) {
+  .service('OperatoriaService', [ '$resource','VaribleService', function ($resource,VaribleService) {
     // AngularJS will instantiate a singleton by calling "new" on this function
-    var service = $resource('http://127.0.0.1:8080/api/operatorias/:id');
+    var service = $resource(VaribleService.url()+'/operatorias/:id', {}, {
+        'buscarPorPaciente': { method: 'GET', isArray: true, url: VaribleService.url()+'/operatorias/operatoriasporusuario/:id'}
+      });
 
     return service;
   }]);

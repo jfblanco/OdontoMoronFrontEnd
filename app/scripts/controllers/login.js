@@ -15,6 +15,8 @@ angular.module('odontoMoronFrontendApp')
       'Karma'
     ];
 
+    $scope.isCollapsed = true;
+
     $scope.usuarioDTO = {name: null, pass: null};
 
     $scope.login = function(){
@@ -22,6 +24,15 @@ angular.module('odontoMoronFrontendApp')
     		function(result)
     		{
     			$location.path( "/" )
-    		});
+    		},
+        function(data, result)
+        {
+          $scope.isCollapsed = false;
+        });
     }
+
+    $scope.removerModal = function(){
+      $scope.isCollapsed = true;
+    }
+
   }]);

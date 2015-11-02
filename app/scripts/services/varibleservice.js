@@ -12,11 +12,12 @@ angular.module('odontoMoronFrontendApp')
     var service = {};
 
     service.url = function(){
-    	return "http://127.0.0.1:8080/api";
+    	//return "http://blancofrancisco.ddns.net:8080/odontomoron/api";
+        return "http://127.0.0.1:8080/api";
     }
 
     service.host = function(){
-    	return "127.0.0.1:8080";
+    	return "blancofrancisco.ddns.net:8080/odontomoron";
     }    
 
     return service;
